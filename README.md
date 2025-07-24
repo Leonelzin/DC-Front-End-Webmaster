@@ -1,6 +1,6 @@
 # Curso Front-End Completo 2.0 - Danki Code
 
-Este repositório contém todos os arquivos, projetos e exercícios desenvolvidos durante o **Curso Front-End Completo 2.0** da [Danki Code](https://dankicode.com/). O objetivo é documentar o progresso do curso, reforçar o aprendizado e facilitar futuras consultas.
+Este repositório contém todos os arquivos, projetos e exercícios desenvolvidos durante o **Curso Front-End Completo 2.0** da [Danki Code](https://cursos.dankicode.com/). O objetivo é documentar o progresso do curso, reforçar o aprendizado e facilitar futuras consultas.
 
 ---
 
