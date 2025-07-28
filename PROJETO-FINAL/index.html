@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agência Bold</title>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <link rel="stylesheet" href="CSS/style.css" />
 </head>
 <body>
@@ -165,6 +165,36 @@
       </nav>
     </div>
   </footer>
+
+  <script>
+    // Seleciona todos os elementos que vamos usar
+    const dots = document.querySelectorAll('.testimonial-nav .dot');
+    const cardsContainer = document.querySelector('.testimonials-cards');
+    const cards = document.querySelectorAll('.testimonial-card');
+
+    // Verifica se os cards existem para evitar erros
+    if (cards.length > 0) {
+      // Adiciona um "ouvinte" de clique para cada bolinha
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+
+          // Como temos 3 cards, precisamos ajustar a lógica para funcionar em diferentes tamanhos de tela.
+          // Vamos usar o scrollIntoView que é mais simples e robusto.
+
+          // Move o card correspondente para a visão
+          cards[index].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'start'
+          });
+
+          // Atualiza qual bolinha está ativa (a colorida)
+          document.querySelector('.testimonial-nav .dot.active').classList.remove('active');
+          dot.classList.add('active');
+        });
+      });
+    }
+  </script>
 
 </body>
 </html>

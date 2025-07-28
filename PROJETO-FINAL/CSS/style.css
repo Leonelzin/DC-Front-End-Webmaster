@@ -40,7 +40,7 @@ body {
 }
 
 main {
-  overflow: hidden; /* Evita que a curva do hero cause scroll horizontal */
+  overflow-x: hidden; /* Evita que a curva do hero e o carrossel causem scroll horizontal */
 }
 
 /* -----------------
@@ -235,9 +235,8 @@ header nav a:hover {
   margin: 0 auto;
 }
 
-/* ATUALIZADO: Bloco de clientes com logos em tamanho máximo */
 .clients {
-  padding: 150px 0 120px 0; /* Aumentei o padding inferior para dar mais espaço */
+  padding: 150px 0 120px 0;
   background-color: var(--bg-white);
   text-align: center;
 }
@@ -247,12 +246,12 @@ header nav a:hover {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  gap: 100px; /* Mais espaço entre os logos */
+  gap: 100px;
 }
 
 .clients img {
-  height: 120px; /* Altura aumentada para um tamanho bem grande */
-  width: auto;   /* Largura automática para manter a proporção */
+  height: 120px;
+  width: auto;
   filter: grayscale(100%);
   opacity: 0.6;
   transition: all 0.3s ease;
@@ -298,12 +297,12 @@ header nav a:hover {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  background-color: var(--icon-bg); /* Color defined inline in HTML */
+  background-color: var(--icon-bg);
 }
 
 .icon-wrapper img {
-  width: 28px;
-  height: 28px;
+  width: 34px;  /* MODIFICADO: Ícone maior */
+  height: 34px; /* MODIFICADO: Ícone maior */
 }
 
 .card h3 {
@@ -393,19 +392,33 @@ header nav a:hover {
 }
 
 /* -----------------
-   9. Testimonials
+   9. Testimonials (MODIFICADO PARA CARROSSEL)
    ----------------- */
 .testimonials {
   padding: 80px 0;
   background: var(--bg-light-gray);
 }
+
+/* Container para os cards */
 .testimonials-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
   gap: 30px;
+  /* Habilita o scroll horizontal com "snap" */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  /* Esconde a barra de rolagem */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.testimonials-cards::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
+/* Card individual */
 .testimonial-card {
+  flex: 0 0 100%; /* Cada card ocupa 100% da largura do container */
+  scroll-snap-align: start; /* Alinha o card no início ao "parar" o scroll */
+  box-sizing: border-box;
   background-color: var(--bg-white);
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -546,5 +559,18 @@ footer nav a {
   .footer-container {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* Ajuste para o carrossel em telas maiores */
+@media(min-width: 769px) {
+  .testimonials .container {
+    max-width: 500px; /* Limita a largura para mostrar um card por vez */
+  }
+}
+
+@media(min-width: 992px) {
+  .testimonials .container {
+    max-width: 600px;
   }
 }
