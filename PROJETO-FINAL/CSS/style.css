@@ -1,0 +1,550 @@
+/* ==========================================================================
+   AGÊNCIA BOLD - STYLESHEET
+   ========================================================================== */
+
+/* -----------------
+   1. Global & Variables
+   ----------------- */
+:root {
+  --primary-blue: #4338FF;
+  --primary-yellow: #FFB800;
+  --text-dark: #1E293B;
+  --text-light: #64748B;
+  --bg-light-gray: #F8FAFC;
+  --bg-white: #FFFFFF;
+  --border-color: #E2E8F0;
+  --font-family: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+main {
+  overflow: hidden; /* Evita que a curva do hero cause scroll horizontal */
+}
+
+/* -----------------
+   2. Header & Navigation
+   ----------------- */
+header {
+  background-color: var(--primary-blue);
+  padding: 20px 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--bg-white);
+  text-decoration: none;
+}
+
+.logo b {
+  font-weight: 700;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+header nav a {
+  color: var(--bg-white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: opacity 0.3s ease;
+}
+
+header nav a:hover {
+  opacity: 0.8;
+}
+
+/* -----------------
+   3. Buttons
+   ----------------- */
+.btn {
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.btn-ghost {
+  border: 1px solid var(--bg-white);
+  color: var(--bg-white);
+}
+
+.btn-ghost:hover {
+  background-color: var(--bg-white);
+  color: var(--primary-blue);
+}
+
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: var(--bg-white);
+  border: 1px solid var(--primary-blue);
+}
+
+.btn-primary:hover {
+  background-color: #3a2ff2;
+  transform: translateY(-2px);
+}
+
+.btn-yellow {
+  background-color: var(--primary-yellow);
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.btn-yellow:hover {
+  background-color: #ffc32b;
+  transform: translateY(-2px);
+}
+
+/* -----------------
+   4. Hero Section
+   ----------------- */
+.hero {
+  background-color: var(--primary-blue);
+  color: var(--bg-white);
+  padding: 200px 0 250px 0;
+  position: relative;
+  /* Grid pattern in background */
+  background-image:
+    linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* The curve effect */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: var(--bg-white);
+  border-radius: 100% 100% 0 0 / 100%;
+  transform: translateY(50%);
+}
+
+.hero .container {
+  text-align: center;
+}
+
+.hero-text h2 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  max-width: 650px;
+  margin: 0 auto 15px auto;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Wavy underline effect */
+.highlight {
+  position: relative;
+  display: inline-block;
+}
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='10' viewBox='0 0 100 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6C13.2979 3.59574 34.8404 0.5 50.5 2.5C67.5 4.5 86.5 7.5 98 6' stroke='%23FFB800' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.hero-image-wrapper {
+  margin-top: 60px;
+  position: relative;
+  z-index: 10;
+}
+
+.hero-image {
+  max-width: 600px;
+  width: 100%;
+  background-color: var(--bg-white);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* -----------------
+   5. General Sections & Clients
+   ----------------- */
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.section-title h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.section-title p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+/* ATUALIZADO: Bloco de clientes com logos em tamanho máximo */
+.clients {
+  padding: 150px 0 120px 0; /* Aumentei o padding inferior para dar mais espaço */
+  background-color: var(--bg-white);
+  text-align: center;
+}
+
+.clients .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px; /* Mais espaço entre os logos */
+}
+
+.clients img {
+  height: 120px; /* Altura aumentada para um tamanho bem grande */
+  width: auto;   /* Largura automática para manter a proporção */
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.clients img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* -----------------
+   6. "Why Us" Section
+   ----------------- */
+.why-us {
+  padding: 80px 0;
+  background-color: var(--bg-light-gray);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 30px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
+
+.icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  background-color: var(--icon-bg); /* Color defined inline in HTML */
+}
+
+.icon-wrapper img {
+  width: 28px;
+  height: 28px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* -----------------
+   7. CTA Section
+   ----------------- */
+.cta {
+  background-color: var(--primary-blue);
+  color: var(--bg-white);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.cta p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+/* -----------------
+   8. Benefits Section
+   ----------------- */
+.benefits {
+  padding: 100px 0;
+}
+
+.benefits-container {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.benefits-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.benefits-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.benefits-text ul {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.benefits-text ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 15px;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.benefits-text ul li img {
+  width: 22px;
+  margin-top: 4px;
+}
+
+.benefits-img {
+  flex: 1;
+  min-width: 300px;
+}
+.benefits-img img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* -----------------
+   9. Testimonials
+   ----------------- */
+.testimonials {
+  padding: 80px 0;
+  background: var(--bg-light-gray);
+}
+.testimonials-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.testimonial-card {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+}
+
+.testimonial-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+.testimonial-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.testimonial-card p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+.testimonial-card .stars {
+  width: 100px;
+}
+
+.testimonial-nav {
+  text-align: center;
+  margin-top: 40px;
+}
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.dot.active {
+  background-color: var(--primary-blue);
+}
+
+/* -----------------
+   10. Contact
+   ----------------- */
+.contact {
+  padding: 100px 0;
+}
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contact form input,
+.contact form textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-light-gray);
+  border-radius: 6px;
+  font-family: var(--font-family);
+  font-size: 1rem;
+}
+.contact form input:focus,
+.contact form textarea:focus {
+  outline: 1px solid var(--primary-blue);
+}
+.contact form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+.contact form .btn {
+  width: 100%;
+}
+
+/* -----------------
+   11. Footer
+   ----------------- */
+footer {
+  background-color: var(--primary-blue);
+  color: var(--bg-white);
+  padding: 40px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+footer p {
+  font-weight: 500;
+  opacity: 0.9;
+}
+footer nav {
+  display: flex;
+  gap: 25px;
+}
+footer nav a {
+  color: var(--bg-white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* -----------------
+   12. Responsive
+   ----------------- */
+@media(max-width: 768px) {
+  .hero {
+    padding: 150px 0 200px 0;
+  }
+  .hero-text h2 {
+    font-size: 2.5rem;
+  }
+  .section-title h2 {
+    font-size: 2rem;
+  }
+  header nav {
+    display: none; /* Em um projeto real, aqui entraria um menu hamburger com JS */
+  }
+  .benefits-container {
+    gap: 40px;
+  }
+  .benefits-text {
+    text-align: center;
+  }
+  .benefits-text ul li {
+    justify-content: center;
+  }
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
